@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMDirect™ | Enterprise Memory Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a2540;
+            --accent: #00d4aa;
+            --accent-hover: #00b894;
+            --surface: #f6f9fc;
+            --text: #0a2540;
+            --text-muted: #425466;
+            --white: #ffffff;
+            --border: #e3e8ee;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 5% 5rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--surface);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .urgency-timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.25rem;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .urgency-timer.pulse {
+            animation: urgencyPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-endorsement {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .hero-person {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+
+        .hero-endorsement-text {
+            text-align: left;
+        }
+
+        .hero-endorsement-text strong {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Plans Section */
+        .plans-section {
+            padding: 5rem 5%;
+            background: var(--surface);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: var(--white);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Subscription Toggle */
+        .subscription-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .subscription-toggle span {
+            color: var(--text-muted);
+        }
+
+        .subscription-toggle span.active-plan {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .toggle-switch {
+            width: 50px;
+            height: 26px;
+            background: var(--border);
+            border-radius: 13px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .toggle-switch.active {
+            background: var(--accent);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            transition: box-shadow 0.2s;
+        }
+
+        .plan-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .plan-card.featured {
+            border-color: var(--accent);
+            border-width: 2px;
+        }
+
+        .plan-popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plan-size {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .plan-amount span {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .price-anchor {
+            font-size: 1rem;
+            color: #dc2626;
+            text-decoration: line-through;
+            margin-top: 0.75rem;
+        }
+
+        .plan-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0.25rem 0 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .plan-features li svg {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 0.875rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .plan-btn.primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .plan-btn.primary:hover {
+            opacity: 0.9;
+        }
+
+        .plan-btn.secondary {
+            background: var(--surface);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .plan-btn.secondary:hover {
+            background: var(--border);
+        }
+
+        .plan-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .commitment-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .commitment-check input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .commitment-check:hover {
+            color: var(--text);
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Download Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .progress-container {
+            background: var(--surface);
+            border-radius: 8px;
+            height: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            border-radius: 8px;
+            transition: width 0.3s ease-out;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-details {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: left;
+            font-family: monospace;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .download-details.show {
+            display: block;
+        }
+
+        .modal-success {
+            display: none;
+        }
+
+        .modal-success.show {
+            display: block;
+        }
+
+        .modal-progress {
+            display: block;
+        }
+
+        .modal-progress.hide {
+            display: none;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 5%;
+            background: var(--surface);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 5rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .faq-question svg {
+            transition: transform 0.2s;
+            color: var(--text-muted);
+        }
+
+        .faq-item.open .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            padding-top: 1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Activity Notifications */
+        .notification-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            z-index: 999;
+            transform: translateX(-120%);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .notification-toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification-toast .notif-icon {
+            font-size: 1.25rem;
+        }
+
+        .notification-toast .notif-text strong {
+            color: var(--primary);
+        }
+
+        .notification-toast .notif-text {
+            color: var(--text-muted);
+        }
+
+        .notification-toast .notif-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Exit Intent Popup */
+        .exit-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(6px);
+        }
+
+        .exit-overlay.active {
+            display: flex;
+        }
+
+        .exit-modal {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            animation: exitSlideIn 0.3s ease;
+        }
+
+        @keyframes exitSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .exit-modal h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .exit-modal p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .exit-modal .exit-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+            margin-bottom: 1rem;
+        }
+
+        .exit-modal .exit-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .exit-modal .exit-dismiss {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .exit-modal .exit-dismiss:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                    <line x1="9" y1="9" x2="9" y2="15"/>
+                    <line x1="15" y1="9" x2="15" y2="15"/>
+                </svg>
+            </div>
+            RAMDirect
+        </div>
+        <ul class="nav-links">
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#plans" class="nav-cta">Get RAM</a>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Trusted by 2M+ users worldwide
+        </div>
+        <h1>Upgrade your RAM in seconds, not hours</h1>
+        <p>Skip the screwdriver. Our proprietary cloud-to-hardware pipeline delivers memory directly to your system with zero downtime.</p>
+        <a href="#plans" class="hero-cta">
+            Download RAM Now
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+        <div class="urgency-timer" id="urgency-timer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Your reserved RAM expires in <span id="timer-display">15:00</span>
+        </div>
+        <div class="hero-endorsement">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="IT Professional" class="hero-person">
+            <div class="hero-endorsement-text">
+                <strong>Recommended by IT pros</strong>
+                "The only RAM solution I trust"
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-value">847TB</div>
+                <div class="stat-label">RAM delivered this month</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">99.97%</div>
+                <div class="stat-label">Installation success rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">0.3s</div>
+                <div class="stat-label">Average install time</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plans-section" id="plans">
+        <div class="section-header">
+            <h2>Choose your upgrade</h2>
+            <p>All products include lifetime warranty and 24/7 support. Everything is permanently free.</p>
+        </div>
+
+        <!-- Subscription Toggle -->
+        <div class="subscription-toggle">
+            <span class="active-plan" id="plan-onetime">One-time</span>
+            <div class="toggle-switch" id="sub-toggle" onclick="toggleSubscription()"></div>
+            <span id="plan-subscription">Subscription</span>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <button class="tab-btn active" data-tab="ram">RAM</button>
+            <button class="tab-btn" data-tab="cpu">CPU Cores</button>
+            <button class="tab-btn" data-tab="storage">Storage</button>
+            <button class="tab-btn" data-tab="bundles">Bundles</button>
+        </div>
+
+        <!-- RAM Tab -->
+        <div class="tab-content active" id="tab-ram">
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-size">Starter</div>
+                    <div class="plan-amount">8<span>GB</span></div>
+                    <div class="price-anchor">Retail: $49</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DDR4 compatible</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Standard latency</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-ram-8')">Yes, I want faster performance</label>
+                    <button class="plan-btn secondary" id="btn-ram-8" onclick="startDownload('8GB RAM')" disabled>Download 8GB</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Plus</div>
+                    <div class="plan-amount">16<span>GB</span></div>
+                    <div class="price-anchor">Retail: $89</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DDR4 optimized</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Low latency</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-ram-16')">Yes, I want faster performance</label>
+                    <button class="plan-btn secondary" id="btn-ram-16" onclick="startDownload('16GB RAM')" disabled>Download 16GB</button>
+                </div>
+                <div class="plan-card featured">
+                    <span class="plan-popular">Most Popular</span>
+                    <div class="plan-size">Pro</div>
+                    <div class="plan-amount">32<span>GB</span></div>
+                    <div class="price-anchor">Retail: $149</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DDR5 optimized</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ultra-low latency</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>RGB sync enabled</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-ram-32')">Yes, I want faster performance</label>
+                    <button class="plan-btn primary" id="btn-ram-32" onclick="startDownload('32GB RAM')" disabled>Download 32GB</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Studio</div>
+                    <div class="plan-amount">64<span>GB</span></div>
+                    <div class="price-anchor">Retail: $249</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Content creator optimized</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-ram-64')">Yes, I want faster performance</label>
+                    <button class="plan-btn secondary" id="btn-ram-64" onclick="startDownload('64GB RAM')" disabled>Download 64GB</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Enterprise</div>
+                    <div class="plan-amount">128<span>GB</span></div>
+                    <div class="price-anchor">Retail: $499</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Server-grade ECC</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-ram-128')">Yes, I want faster performance</label>
+                    <button class="plan-btn secondary" id="btn-ram-128" onclick="startDownload('128GB RAM')" disabled>Download 128GB</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CPU Tab -->
+        <div class="tab-content" id="tab-cpu">
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-size">Dual</div>
+                    <div class="plan-amount">2<span>Cores</span></div>
+                    <div class="price-anchor">Retail: $29</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic multitasking</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Email & browsing</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-cpu-2')">Yes, I want more cores</label>
+                    <button class="plan-btn secondary" id="btn-cpu-2" onclick="startDownload('2 CPU Cores')" disabled>Download 2 Cores</button>
+                </div>
+                <div class="plan-card featured">
+                    <span class="plan-popular">Best Value</span>
+                    <div class="plan-size">Quad</div>
+                    <div class="plan-amount">4<span>Cores</span></div>
+                    <div class="price-anchor">Retail: $59</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gaming ready</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Light video editing</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-cpu-4')">Yes, I want more cores</label>
+                    <button class="plan-btn primary" id="btn-cpu-4" onclick="startDownload('4 CPU Cores')" disabled>Download 4 Cores</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Octa</div>
+                    <div class="plan-amount">8<span>Cores</span></div>
+                    <div class="price-anchor">Retail: $99</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Streaming + gaming</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Multi-app workloads</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-cpu-8')">Yes, I want more cores</label>
+                    <button class="plan-btn secondary" id="btn-cpu-8" onclick="startDownload('8 CPU Cores')" disabled>Download 8 Cores</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Ultra</div>
+                    <div class="plan-amount">16<span>Cores</span></div>
+                    <div class="price-anchor">Retail: $199</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Workstation grade</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3D rendering ready</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-cpu-16')">Yes, I want more cores</label>
+                    <button class="plan-btn secondary" id="btn-cpu-16" onclick="startDownload('16 CPU Cores')" disabled>Download 16 Cores</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Storage Tab -->
+        <div class="tab-content" id="tab-storage">
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-size">Starter</div>
+                    <div class="plan-amount">256<span>GB</span></div>
+                    <div class="price-anchor">Retail: $29</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic SSD speeds</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>OS + essentials</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-storage-256')">Yes, I want more storage</label>
+                    <button class="plan-btn secondary" id="btn-storage-256" onclick="startDownload('256GB Storage')" disabled>Download 256GB</button>
+                </div>
+                <div class="plan-card featured">
+                    <span class="plan-popular">Most Popular</span>
+                    <div class="plan-size">Pro</div>
+                    <div class="plan-amount">1<span>TB</span></div>
+                    <div class="price-anchor">Retail: $79</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>NVMe speeds</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Game library ready</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-storage-1tb')">Yes, I want more storage</label>
+                    <button class="plan-btn primary" id="btn-storage-1tb" onclick="startDownload('1TB Storage')" disabled>Download 1TB</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Creator</div>
+                    <div class="plan-amount">4<span>TB</span></div>
+                    <div class="price-anchor">Retail: $149</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Video editing ready</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Raw footage storage</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-storage-4tb')">Yes, I want more storage</label>
+                    <button class="plan-btn secondary" id="btn-storage-4tb" onclick="startDownload('4TB Storage')" disabled>Download 4TB</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Archive</div>
+                    <div class="plan-amount">10<span>TB</span></div>
+                    <div class="price-anchor">Retail: $299</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Unlimited backups</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Cold storage ready</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-storage-10tb')">Yes, I want more storage</label>
+                    <button class="plan-btn secondary" id="btn-storage-10tb" onclick="startDownload('10TB Storage')" disabled>Download 10TB</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bundles Tab -->
+        <div class="tab-content" id="tab-bundles">
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-size">Starter Pack</div>
+                    <div class="plan-amount" style="font-size: 1.5rem;">16GB + 4 Cores + 256GB</div>
+                    <div class="price-anchor">Value: $177</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Perfect for beginners</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic productivity</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-bundle-starter')">Yes, I want this bundle</label>
+                    <button class="plan-btn secondary" id="btn-bundle-starter" onclick="startDownload('Starter Bundle')" disabled>Download Bundle</button>
+                </div>
+                <div class="plan-card featured">
+                    <span class="plan-popular">Best Value</span>
+                    <div class="plan-size">Gamer Bundle</div>
+                    <div class="plan-amount" style="font-size: 1.5rem;">32GB + 8 Cores + 1TB</div>
+                    <div class="price-anchor">Value: $327</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60fps guaranteed</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Stream while gaming</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-bundle-gamer')">Yes, I want this bundle</label>
+                    <button class="plan-btn primary" id="btn-bundle-gamer" onclick="startDownload('Gamer Bundle')" disabled>Download Bundle</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Creator Suite</div>
+                    <div class="plan-amount" style="font-size: 1.5rem;">64GB + 16 Cores + 4TB</div>
+                    <div class="price-anchor">Value: $597</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>4K editing ready</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>After Effects optimized</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-bundle-creator')">Yes, I want this bundle</label>
+                    <button class="plan-btn secondary" id="btn-bundle-creator" onclick="startDownload('Creator Bundle')" disabled>Download Bundle</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-size">Everything Pack</div>
+                    <div class="plan-amount" style="font-size: 1.5rem;">128GB + 16 Cores + 10TB</div>
+                    <div class="price-anchor">Value: $997</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>All the downloads</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Enterprise-grade specs</li>
+                    </ul>
+                    <label class="commitment-check"><input type="checkbox" onchange="toggleDownloadBtn(this, 'btn-bundle-everything')">Yes, I want this bundle</label>
+                    <button class="plan-btn secondary" id="btn-bundle-everything" onclick="startDownload('Everything Bundle')" disabled>Download Bundle</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-section" id="how">
+        <div class="section-header">
+            <h2>How it works</h2>
+            <p>Our patented CloudRAM™ technology makes hardware upgrades obsolete.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Select your plan</h3>
+                <p>Choose the RAM capacity that fits your workflow. All options are permanently free.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Download & install</h3>
+                <p>Our installer detects your system configuration and optimizes memory allocation automatically.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Enjoy more RAM</h3>
+                <p>That's it. Open more Chrome tabs. Run more VMs. Live your best life.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>Loved by millions</h2>
+            <p>Join the RAMDirect community and see what the hype is about.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"I was skeptical at first, but after downloading 64GB my computer has never been faster. I can finally run Chrome with more than 3 tabs open."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JK</div>
+                    <div>
+                        <div class="testimonial-name">James K.</div>
+                        <div class="testimonial-title">Software Engineer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"Our IT department saved $400,000 last quarter by switching to RAMDirect. The CFO literally cried tears of joy."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SM</div>
+                    <div>
+                        <div class="testimonial-name">Sarah M.</div>
+                        <div class="testimonial-title">CTO, Fortune 500</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"I downloaded 128GB onto my smart fridge. Now it renders video faster than my workstation. Incredible technology."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DR</div>
+                    <div>
+                        <div class="testimonial-name">David R.</div>
+                        <div class="testimonial-title">Content Creator</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="section-header">
+            <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Is this compatible with my system?
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+                <p>RAMDirect works with any device connected to the internet, including PCs, Macs, phones, tablets, smart TVs, refrigerators, and most modern toasters.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How is this free?
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+                <p>We believe memory is a human right. Our service is funded by enterprise contracts and generous donations from people who really appreciate having more RAM.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Will this void my warranty?
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+                <p>No. Since no physical installation is required, your manufacturer warranty remains fully intact. We've had this verified by several law firms and one very confused Best Buy employee.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I download RAM for someone else?
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely. RAMDirect makes a thoughtful gift for birthdays, holidays, or that coworker who's always complaining about their slow computer.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">RAMDirect™</div>
+            <ul class="footer-links">
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press Kit</a></li>
+            </ul>
+            <div class="footer-copy">
+                © 2025 RAMDirect Technologies Inc. All rights reserved. Patent pending in 47 countries.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-overlay" id="exit-overlay">
+        <div class="exit-modal">
+            <h3>Before you go...</h3>
+            <p>Your system is still running on limited RAM. Don't leave performance on the table.</p>
+            <a href="#plans" class="exit-cta" onclick="closeExitPopup()">Claim Your Free Upgrade</a>
+            <span class="exit-dismiss" onclick="closeExitPopup()">No thanks, I prefer slow computers</span>
+        </div>
+    </div>
+
+    <!-- Activity Notification Toast -->
+    <div class="notification-toast" id="notification-toast">
+        <span class="notif-icon">🎉</span>
+        <div>
+            <div class="notif-text"><strong id="notif-name">Someone</strong> just downloaded <strong id="notif-amount">32GB</strong></div>
+            <div class="notif-time" id="notif-location">Austin, TX</div>
+        </div>
+    </div>
+
+    <!-- Download Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <div class="modal-progress">
+                <h3>Downloading RAM</h3>
+                <p id="modal-subtitle">Preparing your memory upgrade...</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0%</div>
+                <div class="download-details" id="details">
+                    <div id="log"></div>
+                </div>
+            </div>
+            <div class="modal-success" id="success">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <h3>Installation Complete!</h3>
+                <p id="success-text">Your new RAM is now active. You may need to restart your imagination for changes to take effect.</p>
+                <button class="plan-btn primary" onclick="closeModal()" style="margin-top: 1.5rem;">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Urgency Timer with localStorage persistence
+        (function initTimer() {
+            const TIMER_KEY = 'ramDirectExpiry';
+            const TIMER_DURATION = 15 * 60 * 1000; // 15 minutes in ms
+
+            let expiry = localStorage.getItem(TIMER_KEY);
+            if (!expiry || parseInt(expiry) < Date.now()) {
+                expiry = Date.now() + TIMER_DURATION;
+                localStorage.setItem(TIMER_KEY, expiry);
+            }
+
+            const timerEl = document.getElementById('timer-display');
+            const timerContainer = document.getElementById('urgency-timer');
+
+            function updateTimer() {
+                const remaining = parseInt(localStorage.getItem(TIMER_KEY)) - Date.now();
+
+                if (remaining <= 0) {
+                    // Reset timer (infinite loop for the joke)
+                    const newExpiry = Date.now() + TIMER_DURATION;
+                    localStorage.setItem(TIMER_KEY, newExpiry);
+                    timerContainer.classList.remove('pulse');
+                }
+
+                const totalSeconds = Math.max(0, Math.floor(remaining / 1000));
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                // Add pulse effect when under 2 minutes
+                if (totalSeconds < 120) {
+                    timerContainer.classList.add('pulse');
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
+
+        // Activity Notifications
+        (function initNotifications() {
+            const firstNames = ['James', 'Sarah', 'Michael', 'Emily', 'David', 'Jessica', 'Chris', 'Ashley', 'Matt', 'Amanda', 'Josh', 'Nicole', 'Ryan', 'Stephanie', 'Kevin', 'Michelle'];
+            const cities = [
+                'Austin, TX', 'Seattle, WA', 'Denver, CO', 'Portland, OR', 'Chicago, IL',
+                'Miami, FL', 'Boston, MA', 'Phoenix, AZ', 'Atlanta, GA', 'San Diego, CA',
+                'Nashville, TN', 'Columbus, OH', 'Charlotte, NC', 'Minneapolis, MN', 'Raleigh, NC'
+            ];
+            const products = [
+                '8GB RAM', '16GB RAM', '32GB RAM', '64GB RAM', '128GB RAM',
+                '4 CPU Cores', '8 CPU Cores', '16 CPU Cores',
+                '1TB Storage', '4TB Storage',
+                'Gamer Bundle', 'Creator Bundle'
+            ];
+
+            const toast = document.getElementById('notification-toast');
+            const nameEl = document.getElementById('notif-name');
+            const amountEl = document.getElementById('notif-amount');
+            const locationEl = document.getElementById('notif-location');
+
+            function showNotification() {
+                const name = firstNames[Math.floor(Math.random() * firstNames.length)];
+                const city = cities[Math.floor(Math.random() * cities.length)];
+                const product = products[Math.floor(Math.random() * products.length)];
+
+                nameEl.textContent = name;
+                amountEl.textContent = product;
+                locationEl.textContent = city + ' • Just now';
+
+                toast.classList.add('show');
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+
+                // Schedule next notification (8-15 seconds)
+                const nextDelay = 8000 + Math.random() * 7000;
+                setTimeout(showNotification, nextDelay);
+            }
+
+            // Start after initial delay
+            setTimeout(showNotification, 5000);
+        })();
+
+        // Exit Intent Popup
+        (function initExitIntent() {
+            const exitOverlay = document.getElementById('exit-overlay');
+            let exitShown = sessionStorage.getItem('exitPopupShown');
+
+            document.addEventListener('mouseout', (e) => {
+                // Only trigger when mouse leaves toward top of viewport (browser chrome)
+                if (e.clientY < 10 && !exitShown) {
+                    exitOverlay.classList.add('active');
+                    sessionStorage.setItem('exitPopupShown', 'true');
+                    exitShown = true;
+                }
+            });
+
+            // Close on overlay click
+            exitOverlay.addEventListener('click', (e) => {
+                if (e.target === exitOverlay) {
+                    closeExitPopup();
+                }
+            });
+        })();
+
+        function closeExitPopup() {
+            document.getElementById('exit-overlay').classList.remove('active');
+        }
+
+        // Product Tab Switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all tabs
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked tab
+                btn.classList.add('active');
+                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Subscription Toggle (joke - both are free)
+        function toggleSubscription() {
+            const toggle = document.getElementById('sub-toggle');
+            const onetime = document.getElementById('plan-onetime');
+            const subscription = document.getElementById('plan-subscription');
+
+            toggle.classList.toggle('active');
+            onetime.classList.toggle('active-plan');
+            subscription.classList.toggle('active-plan');
+        }
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+
+        // Micro-commitment checkbox handler
+        function toggleDownloadBtn(checkbox, btnId) {
+            const btn = document.getElementById(btnId);
+            btn.disabled = !checkbox.checked;
+        }
+
+        // Download simulation
+        let downloadProduct = '';
+
+        function startDownload(product) {
+            downloadProduct = product;
+            document.getElementById('modal').classList.add('active');
+            document.getElementById('modal-subtitle').textContent = `Installing ${product}...`;
+            document.getElementById('progress').style.width = '0%';
+            document.getElementById('progress-text').textContent = '0%';
+            document.getElementById('details').classList.remove('show');
+            document.getElementById('log').innerHTML = '';
+            document.getElementById('success').classList.remove('show');
+            document.querySelector('.modal-progress').classList.remove('hide');
+
+            simulateDownload();
+        }
+
+        function simulateDownload() {
+            const logs = [
+                'Initializing quantum memory tunnel...',
+                'Negotiating with cloud RAM servers...',
+                'Bypassing physical limitations...',
+                'Compressing electrons...',
+                'Allocating virtual DIMM slots...',
+                'Syncing with motherboard firmware...',
+                'Calibrating memory timing...',
+                'Verifying installation integrity...',
+                'Optimizing page file allocation...',
+                'Finalizing installation...'
+            ];
+
+            let progress = 0;
+            const logEl = document.getElementById('log');
+            const progressBar = document.getElementById('progress');
+            const progressText = document.getElementById('progress-text');
+
+            setTimeout(() => {
+                document.getElementById('details').classList.add('show');
+            }, 500);
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+                if (progress > 100) progress = 100;
+
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+
+                if (logs.length > 0 && Math.random() > 0.3) {
+                    const log = logs.shift();
+                    logEl.innerHTML += `> ${log}<br>`;
+                    logEl.scrollTop = logEl.scrollHeight;
+                }
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(showSuccess, 800);
+                }
+            }, 300);
+        }
+
+        function showSuccess() {
+            document.querySelector('.modal-progress').classList.add('hide');
+            document.getElementById('success').classList.add('show');
+            document.getElementById('success-text').textContent =
+                `${downloadProduct} has been successfully installed. Your system now has more power than it knows what to do with.`;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
