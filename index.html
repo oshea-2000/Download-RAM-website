@@ -929,6 +929,215 @@
             color: var(--text);
         }
 
+        /* Gift Section */
+        .gift-section {
+            padding: 5rem 5%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .gift-section .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .gift-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gift-form input,
+        .gift-form select {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .gift-form input:focus,
+        .gift-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .gift-form button {
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .gift-form button:hover {
+            background: var(--accent-hover);
+        }
+
+        .gift-link-output {
+            max-width: 500px;
+            margin: 1.5rem auto 0;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .gift-link-output.show {
+            display: flex;
+        }
+
+        .gift-link-output input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+
+        .gift-link-output button {
+            padding: 0.75rem 1.25rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Gift Received Modal */
+        .gift-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            backdrop-filter: blur(8px);
+        }
+
+        .gift-overlay.active {
+            display: flex;
+        }
+
+        .gift-modal {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            animation: giftBounce 0.5s ease;
+        }
+
+        @keyframes giftBounce {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .gift-modal .gift-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .gift-modal h2 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-modal .gift-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+
+        .gift-modal p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .gift-modal .claim-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .gift-modal .claim-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Social Share Buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .share-btn:hover {
+            opacity: 0.9;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .share-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .share-btn.linkedin {
+            background: #0a66c2;
+            color: white;
+        }
+
+        .share-btn.copy {
+            background: var(--surface);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .share-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -974,8 +1183,8 @@
         </div>
         <ul class="nav-links">
             <li><a href="#plans">Plans</a></li>
+            <li><a href="#gift">Send RAM</a></li>
             <li><a href="#how">How It Works</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
         <a href="#plans" class="nav-cta">Get RAM</a>
@@ -1279,6 +1488,31 @@
         </div>
     </section>
 
+    <!-- Gift RAM Section -->
+    <section class="gift-section" id="gift">
+        <div class="section-header">
+            <h2>Send RAM to a friend</h2>
+            <p>The perfect gift for someone with a slow computer. Generate a shareable link!</p>
+        </div>
+        <form class="gift-form" onsubmit="generateGiftLink(event)">
+            <input type="text" id="gift-from" placeholder="Your name" required>
+            <input type="text" id="gift-to" placeholder="Friend's name" required>
+            <select id="gift-amount" required>
+                <option value="">Select RAM amount</option>
+                <option value="8GB">8GB - A thoughtful gesture</option>
+                <option value="16GB">16GB - For a good friend</option>
+                <option value="32GB">32GB - Best friend tier</option>
+                <option value="64GB">64GB - You really care</option>
+                <option value="128GB">128GB - Maximum friendship</option>
+            </select>
+            <button type="submit">Generate Gift Link</button>
+        </form>
+        <div class="gift-link-output" id="gift-link-output">
+            <input type="text" id="gift-link" readonly>
+            <button type="button" onclick="copyGiftLink()">Copy</button>
+        </div>
+    </section>
+
     <section class="how-section" id="how">
         <div class="section-header">
             <h2>How it works</h2>
@@ -1403,6 +1637,17 @@
         </div>
     </footer>
 
+    <!-- Gift Received Modal -->
+    <div class="gift-overlay" id="gift-overlay">
+        <div class="gift-modal">
+            <div class="gift-icon">🎁</div>
+            <h2><span id="gift-recipient">Friend</span>, you received RAM!</h2>
+            <div class="gift-amount" id="gift-received-amount">32GB</div>
+            <p>Sent with love from <strong id="gift-sender">Someone</strong></p>
+            <button class="claim-btn" onclick="claimGift()">Claim Your RAM</button>
+        </div>
+    </div>
+
     <!-- Exit Intent Popup -->
     <div class="exit-overlay" id="exit-overlay">
         <div class="exit-modal">
@@ -1445,11 +1690,92 @@
                 <h3>Installation Complete!</h3>
                 <p id="success-text">Your new RAM is now active. You may need to restart your imagination for changes to take effect.</p>
                 <button class="plan-btn primary" onclick="closeModal()" style="margin-top: 1.5rem;">Done</button>
+                <div class="share-buttons">
+                    <button class="share-btn twitter" onclick="shareToTwitter()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Share
+                    </button>
+                    <button class="share-btn facebook" onclick="shareToFacebook()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Share
+                    </button>
+                    <button class="share-btn copy" onclick="copyShareLink()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        Copy Link
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Check for gift on page load
+        (function checkForGift() {
+            const params = new URLSearchParams(window.location.search);
+            const gift = params.get('gift');
+            const from = params.get('from');
+            const to = params.get('to');
+
+            if (gift && from && to) {
+                document.getElementById('gift-recipient').textContent = to;
+                document.getElementById('gift-received-amount').textContent = gift;
+                document.getElementById('gift-sender').textContent = from;
+                document.getElementById('gift-overlay').classList.add('active');
+            }
+        })();
+
+        // Gift link generation
+        function generateGiftLink(e) {
+            e.preventDefault();
+            const from = document.getElementById('gift-from').value;
+            const to = document.getElementById('gift-to').value;
+            const amount = document.getElementById('gift-amount').value;
+
+            const baseUrl = window.location.origin + window.location.pathname;
+            const giftUrl = `${baseUrl}?gift=${encodeURIComponent(amount)}&from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+
+            document.getElementById('gift-link').value = giftUrl;
+            document.getElementById('gift-link-output').classList.add('show');
+        }
+
+        function copyGiftLink() {
+            const linkInput = document.getElementById('gift-link');
+            linkInput.select();
+            document.execCommand('copy');
+
+            const btn = document.querySelector('.gift-link-output button');
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        }
+
+        function claimGift() {
+            const amount = document.getElementById('gift-received-amount').textContent;
+            document.getElementById('gift-overlay').classList.remove('active');
+            startDownload(amount + ' RAM Gift');
+        }
+
+        // Social sharing
+        function shareToTwitter() {
+            const text = `I just downloaded ${downloadProduct} for FREE! Get yours at`;
+            const url = window.location.origin + window.location.pathname;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = window.location.origin + window.location.pathname;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyShareLink() {
+            const url = window.location.origin + window.location.pathname;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.share-buttons .copy');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+                setTimeout(() => btn.innerHTML = originalText, 2000);
+            });
+        }
+
         // Urgency Timer with localStorage persistence
         (function initTimer() {
             const TIMER_KEY = 'ramDirectExpiry';
